@@ -51,8 +51,17 @@ namespace sortowanie
 
         private void sort(object sender, RoutedEventArgs e)
         {
+
             DateTime START = DateTime.Now;
-            d = sorting.quick(d);
+            switch (sortSelect.SelectedIndex)
+            {
+                case 0:
+                    d = sorting.quick(d);
+                    break;
+                case 1:
+                    d = sorting.bubble(d);
+                    break;
+            }
             timeDiff.Content = (DateTime.Now - START);
 
             string ans = "";

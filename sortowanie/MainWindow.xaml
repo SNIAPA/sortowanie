@@ -8,12 +8,18 @@
         mc:Ignorable="d"
         Title="Sortowanie"
         Height="100"
-        Width="200"
+        Width="280"
         >
     <Grid >
         <Button x:Name="buttonLoad" Content="Load" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSort" Content="Sort" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top"/>
         <Label  x:Name="timeDiff" Content="timeDiff" HorizontalAlignment="Left" Margin="76,7,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxInput" HorizontalAlignment="Left" Margin="25,42,0,0" Text="0 1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="193,10,0,0">
+            <ComboBox x:Name="sortSelect">
+                <ComboBoxItem Content="quick"/>
+                <ComboBoxItem IsSelected="True" Content="bubble"/>
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </Window>
