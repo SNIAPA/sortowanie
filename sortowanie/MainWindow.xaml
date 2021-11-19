@@ -4,19 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sortowanie"
+        ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="500"
-        Width="800"
+        Title="Sortowanie"
+        Height="100"
+        Width="200"
         >
     <Grid >
-
-        <Grid Height ="300" Width="700" x:Name ="display"  Margin="50,100,50,100">
-            <Rectangle HorizontalAlignment="Left" Height="100" Width="10" Margin="10,190,0,0" Stroke="Black" VerticalAlignment="Top"/>
-        </Grid>
-        <Button x:Name="buttonLoad" Content="Load" HorizontalAlignment="Left" Margin="75,32,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="buttonSort" Content="Sort" HorizontalAlignment="Left" Margin="195,32,0,0" VerticalAlignment="Top"/>
-        <Label  x:Name="labelAns" Content="Label" HorizontalAlignment="Left" Margin="353,52,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxInput" HorizontalAlignment="Left" Margin="522,65,0,0" Text="0 1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="buttonLoad" Content="Load" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="buttonSort" Content="Sort" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top"/>
+        <Label  x:Name="timeDiff" Content="timeDiff" HorizontalAlignment="Left" Margin="76,7,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxInput" HorizontalAlignment="Left" Margin="25,42,0,0" Text="0 1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

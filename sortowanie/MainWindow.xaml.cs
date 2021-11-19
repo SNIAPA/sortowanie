@@ -30,9 +30,9 @@ namespace sortowanie
 
             buttonSort.Click += sort;
             buttonLoad.Click += loadFile;
-            textBoxInput.TextChanged += load;
+            textBoxInput.TextChanged += updateDisplay;
 
-            load(null,null);
+            updateDisplay(null,null);
 
         }
 
@@ -51,8 +51,10 @@ namespace sortowanie
 
         private void sort(object sender, RoutedEventArgs e)
         {
+            DateTime START = DateTime.Now;
+            d = sorting.quick(d);
+            timeDiff.Content = (DateTime.Now - START);
 
-            d = sorting.sort1(d);
             string ans = "";
             foreach(int num in d)
             {
@@ -65,7 +67,7 @@ namespace sortowanie
         }
 
 
-        private void load(object sender, RoutedEventArgs e)
+        private void updateDisplay(object sender, RoutedEventArgs e)
         {
             string input = textBoxInput.Text;
 
@@ -84,7 +86,7 @@ namespace sortowanie
                     return;
                 }
                 
-                d.Add(Int16.Parse(letter));
+                d.Add(int.Parse(letter));
             }
             textBoxInput.Background = null;
 
