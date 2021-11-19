@@ -10,9 +10,9 @@
         Width="800"
         >
     <Grid >
-        
+
         <Grid Height ="300" Width="700" x:Name ="display"  Margin="50,100,50,100">
-            <Rectangle HorizontalAlignment="Left" Height="100" Width="10" Margin="98,161,0,0" Stroke="Black" VerticalAlignment="Top"/>
+            <Rectangle HorizontalAlignment="Left" Height="100" Width="10" Margin="10,190,0,0" Stroke="Black" VerticalAlignment="Top"/>
         </Grid>
         <Button x:Name="buttonLoad" Content="Load" HorizontalAlignment="Left" Margin="75,32,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSort" Content="Sort" HorizontalAlignment="Left" Margin="195,32,0,0" VerticalAlignment="Top"/>

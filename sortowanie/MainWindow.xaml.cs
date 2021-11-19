@@ -51,23 +51,8 @@ namespace sortowanie
 
         private void sort(object sender, RoutedEventArgs e)
         {
-            foreach (int num in d)
-            {
-                Debug.WriteLine(num);
-            }
 
-            for (int i = 1;i < d.Count(); i++)
-            {
-                int temp = d[i];
-                int j;
-                for(j = i - 1; j>=0 && d[j] > temp; j--)
-                {
-                    d[j + 1] = d[j];
-                }
-
-                d[j + 1] = temp;
-
-            }
+            d = sorting.sort1(d);
             string ans = "";
             foreach(int num in d)
             {
