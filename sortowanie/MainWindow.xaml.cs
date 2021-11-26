@@ -52,7 +52,7 @@ namespace sortowanie
 
         private void sort(object sender, RoutedEventArgs e)
         {
-            TimeSpan min_time = new TimeSpan(0), avg_time = new TimeSpan(0), max_time = new TimeSpan(0);
+            TimeSpan min_time = new TimeSpan(0), time_sum = new TimeSpan(0), max_time = new TimeSpan(0);
             if (locked)
                 return;
 
@@ -85,18 +85,18 @@ namespace sortowanie
                     minTime.Content = min_time.ToString();
                 }
 
-                if (timeDiff > max_time )
+                if (timeDiff > max_time || max_time == new TimeSpan(0))
                 {
                     max_time = timeDiff;
-                    minTime.Content = max_time.ToString();
+                    maxTime.Content = max_time.ToString();
                 }
 
-                avg_time = (avg_time + timeDiff) / 2;
-                avgTime.Content = avgTime.ToString();
+                time_sum += timeDiff;
 
             }
+            avgTime.Content = (time_sum / int.Parse(textBoxInputIter.Text)).ToString();
 
-            
+
 
             string ans = "";
             foreach(int num in d)
