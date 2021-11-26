@@ -7,19 +7,28 @@
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Sortowanie"
-        Height="100"
-        Width="280"
+        Height="170"
+        Width="314" SizeToContent="WidthAndHeight"
         >
-    <Grid >
+    <Grid Margin="0,0,0,0" >
         <Button x:Name="buttonLoad" Content="Load" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSort" Content="Sort" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top"/>
-        <Label  x:Name="timeDiff" Content="timeDiff" HorizontalAlignment="Left" Margin="76,7,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxInput" HorizontalAlignment="Left" Margin="25,42,0,0" Text="0 1" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="193,10,0,0">
-            <ComboBox x:Name="sortSelect">
-                <ComboBoxItem Content="quick"/>
-                <ComboBoxItem IsSelected="True" Content="bubble"/>
-            </ComboBox>
-        </StackPanel>
+        <Label  x:Name="maxTime" Content="timeDiff" HorizontalAlignment="Left" Margin="81,33,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="textBoxInput" HorizontalAlignment="Center" Margin="0,126,0,0" Text="0 1" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
+        <TextBox x:Name="textBoxInputIter" HorizontalAlignment="Left" Margin="143,11,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Height="18"/>
+        <StackPanel HorizontalAlignment="Left" PreviewTextInput="PreviewTextInput" VerticalAlignment="Top"  Margin="193,10,0,0"/>
+        <ComboBox x:Name="sortSelect" Margin="229,10,10,121" Width="75px">
+            <ComboBoxItem Content="quick"/>
+            <ComboBoxItem IsSelected="True" Content="bubble"/>
+            <ComboBoxItem Content="insert"/>
+            <ComboBoxItem Content="heap sort"/>
+            <ComboBoxItem Content="scalanie"/>
+        </ComboBox>
+        <Label  x:Name="avgTime" Content="timeDiff" HorizontalAlignment="Left" Margin="81,0,0,0" VerticalAlignment="Center" Width="112"/>
+        <Label  x:Name="minTime" Content="timeDiff" HorizontalAlignment="Left" Margin="81,95,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label   Content="iterations:" HorizontalAlignment="Left" Margin="76,7,0,0" VerticalAlignment="Top" Width="62"/>
+        <Label  Content="max" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label  Content="avg" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="50"/>
+        <Label  Content="min" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Window>

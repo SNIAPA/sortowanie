@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.IO;
+using System.Text.RegularExpressions;
+
 namespace sortowanie
 {
     /// <summary>
@@ -22,6 +24,7 @@ namespace sortowanie
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool locked = false;
         List<int> d = new List<int>();
 
         public MainWindow()
@@ -44,25 +47,56 @@ namespace sortowanie
             if(fileDialog.FileName.Length > 0)
                 textBoxInput.Text = File.ReadAllText(fileDialog.FileName);
             
-            
-
         }
 
 
         private void sort(object sender, RoutedEventArgs e)
         {
+            TimeSpan min_time = new TimeSpan(0), avg_time = new TimeSpan(0), max_time = new TimeSpan(0);
+            if (locked)
+                return;
 
-            DateTime START = DateTime.Now;
-            switch (sortSelect.SelectedIndex)
+            for(int i = 0; i < int.Parse(textBoxInputIter.Text); i++)
             {
-                case 0:
-                    d = sorting.quick(d);
-                    break;
-                case 1:
-                    d = sorting.bubble(d);
-                    break;
+                DateTime START = DateTime.Now;
+                switch (sortSelect.SelectedIndex)
+                {
+                    case 0:
+                        d = sorting.quick(d);
+                        break;
+                    case 1:
+                        d = sorting.bubble(d);
+                        break;
+                    case 2:
+                        d = sorting.inserting(d);
+                        break;
+                    case 3:
+                        d = sorting.heapSort(d, d.Count);
+                        break;
+                    case 4:
+                        d = sorting.MergeSort(d, 0, d.Count);
+                        break;
+                }
+                TimeSpan timeDiff = DateTime.Now - START;
+
+                if(timeDiff < min_time || min_time == new TimeSpan(0))
+                {
+                    min_time = timeDiff;
+                    minTime.Content = min_time.ToString();
+                }
+
+                if (timeDiff > max_time )
+                {
+                    max_time = timeDiff;
+                    minTime.Content = max_time.ToString();
+                }
+
+                avg_time = (avg_time + timeDiff) / 2;
+                avgTime.Content = avgTime.ToString();
+
             }
-            timeDiff.Content = (DateTime.Now - START);
+
+            
 
             string ans = "";
             foreach(int num in d)
@@ -91,14 +125,20 @@ namespace sortowanie
                 if (!int.TryParse(letter, out _))
                 {
                     textBoxInput.Background = Brushes.Red;
-
+                    locked = true;
                     return;
                 }
+                locked = false;
                 
                 d.Add(int.Parse(letter));
             }
             textBoxInput.Background = null;
 
+        }
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
