@@ -34,9 +34,28 @@ namespace sortowanie
             buttonSort.Click += sort;
             buttonLoad.Click += loadFile;
             textBoxInput.TextChanged += updateDisplay;
+            textBoxInputIter.TextChanged += TextBoxInputIter_TextChanged;
 
             updateDisplay(null,null);
 
+        }
+
+        private void TextBoxInputIter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!int.TryParse(textBoxInputIter.Text, out _) )
+            {
+                textBoxInputIter.Background = Brushes.Red;
+                locked = true;
+                return;
+            }
+            if (int.Parse(textBoxInputIter.Text) <= 0)
+            {
+                textBoxInputIter.Background = Brushes.Red;
+                locked = true;
+                return;
+            }
+            locked = false;
+            textBoxInputIter.Background = null;
         }
 
         private void loadFile(object sender, RoutedEventArgs e)
@@ -134,11 +153,6 @@ namespace sortowanie
             }
             textBoxInput.Background = null;
 
-        }
-        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

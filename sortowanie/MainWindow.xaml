@@ -16,7 +16,7 @@
         <Label  x:Name="maxTime" Content="timeDiff" HorizontalAlignment="Left" Margin="81,33,0,0" VerticalAlignment="Top" Width="112"/>
         <TextBox x:Name="textBoxInput" HorizontalAlignment="Center" Margin="0,126,0,0" Text="0 1" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
         <TextBox x:Name="textBoxInputIter" HorizontalAlignment="Left" Margin="143,11,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Height="18"/>
-        <StackPanel HorizontalAlignment="Left" PreviewTextInput="PreviewTextInput" VerticalAlignment="Top"  Margin="193,10,0,0"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="193,10,0,0"/>
         <ComboBox x:Name="sortSelect" Margin="229,10,10,193" Width="75px">
             <ComboBoxItem Content="quick"/>
             <ComboBoxItem IsSelected="True" Content="bubble"/>
