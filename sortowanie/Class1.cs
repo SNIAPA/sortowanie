@@ -79,46 +79,46 @@ namespace sortowanie
             return d;
         }
 
-        static private List<int> heapify(List<int> arr, int n, int i)
+        static private List<int> heapify(List<int> d, int n, int i)
         {
             int largest = i;
             int left = 2 * i + 1;
             int right = 2 * i + 2;
 
-            if (left < n && arr[left] > arr[largest])
+            if (left < n && d[left] > d[largest])
                 largest = left;
 
-            if (right < n && arr[right] > arr[largest])
+            if (right < n && d[right] > d[largest])
                 largest = right;
 
             if (largest != i)
             {
-                int temp = arr[largest];
-                arr[largest] = arr[i];
-                arr[i] = temp;
-                heapify(arr, n, largest);
+                int temp = d[largest];
+                d[largest] = d[i];
+                d[i] = temp;
+                heapify(d, n, largest);
             }
-            return arr;
+            return d;
 
         }
 
-        public static List<int> heapSort(List<int> arr, int n)
+        public static List<int> heap(List<int> d, int n)
         {
             for (int i = n / 2 - 1; i >= 0; i--)
-                heapify(arr, n, i);
+                heapify(d, n, i);
 
             for (int i = n - 1; i >= 0; i--)
             {
-                int temp = arr[0];
-                arr[0] = arr[i];
-                arr[i] = temp;
+                int temp = d[0];
+                d[0] = d[i];
+                d[i] = temp;
 
-                heapify(arr, i, 0);
+                heapify(d, i, 0);
             }
-            return arr;
+            return d;
         }
 
-        private static List<int> merge(List<int> arr, int l, int m, int r)
+        private static List<int> merge(List<int> d, int l, int m, int r)
         {
             int n1 = m - l + 1;
             int n2 = r - m;
@@ -128,9 +128,9 @@ namespace sortowanie
             int i, j;
 
             for (i = 0; i < n1; ++i)
-                L[i] = arr[l + i];
+                L[i] = d[l + i];
             for (j = 0; j < n2; ++j)
-                R[j] = arr[m + 1 + j];
+                R[j] = d[m + 1 + j];
             i = 0;
             j = 0;
 
@@ -139,12 +139,12 @@ namespace sortowanie
             {
                 if (L[i] <= R[j])
                 {
-                    arr[k] = L[i];
+                    d[k] = L[i];
                     i++;
                 }
                 else
                 {
-                    arr[k] = R[j];
+                    d[k] = R[j];
                     j++;
                 }
                 k++;
@@ -152,32 +152,32 @@ namespace sortowanie
 
             while (i < n1)
             {
-                arr[k] = L[i];
+                d[k] = L[i];
                 i++;
                 k++;
             }
 
             while (j < n2)
             {
-                arr[k] = R[j];
+                d[k] = R[j];
                 j++;
                 k++;
             }
-            return arr;
+            return d;
         }
 
-         public static List<int> MergeSort(List<int> arr, int l, int r)
+         public static List<int> merge_sort(List<int> d, int l, int r)
         {
             if (l < r)
             {
                 int m = l + (r - l) / 2;
 
-                MergeSort(arr, l, m);
-                MergeSort(arr, m + 1, r);
+                merge_sort(d, l, m);
+                merge_sort(d, m + 1, r);
 
-                merge(arr, l, m, r);
+                merge(d, l, m, r);
             }
-            return arr;
+            return d;
         }
 
     }

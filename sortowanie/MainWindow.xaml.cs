@@ -75,25 +75,27 @@ namespace sortowanie
             if (locked)
                 return;
 
+            List<int> startingD = d;
+
             for(int i = 0; i < int.Parse(textBoxInputIter.Text); i++)
             {
                 DateTime START = DateTime.Now;
                 switch (sortSelect.SelectedIndex)
                 {
                     case 0:
-                        d = sorting.quick(d);
+                        d = sorting.quick(startingD);
                         break;
                     case 1:
-                        d = sorting.bubble(d);
+                        d = sorting.bubble(startingD);
                         break;
                     case 2:
-                        d = sorting.inserting(d);
+                        d = sorting.inserting(startingD);
                         break;
                     case 3:
-                        d = sorting.heapSort(d, d.Count);
+                        d = sorting.heap(startingD, startingD.Count);
                         break;
                     case 4:
-                        d = sorting.MergeSort(d, 0, d.Count);
+                        d = sorting.merge_sort(startingD, 0, startingD.Count);
                         break;
                 }
                 TimeSpan timeDiff = DateTime.Now - START;
